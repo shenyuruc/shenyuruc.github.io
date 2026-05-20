@@ -1,8 +1,8 @@
 ---
-layout: archive
+layout: single
 title: "Publications"
 permalink: /publications/
-author_profile: true
+author_profile: false
 ---
 
 {% for category in site.data.publications_categories %}
