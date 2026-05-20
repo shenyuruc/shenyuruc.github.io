@@ -5,62 +5,28 @@ permalink: /publications/
 author_profile: true
 ---
 
-<h2>Journal Articles</h2>
-<ul>
-{% for post in site.publications %}
-  {% if post.category == "manuscripts" %}
-    <li>
-      <a href="{{ post.url }}">{{ post.title }}</a>
-      {% if post.date %}
-        ({{ post.date | date: "%Y" }})
-      {% endif %}
-      {% if post.venue %}
-        - <i>{{ post.venue }}</i>
-      {% endif %}
-      {% if post.paperurl %}
-        <a href="{{ post.paperurl }}">[Link]</a>
-      {% endif %}
-    </li>
-  {% endif %}
+{% for category in site.data.publications_categories %}
+  <h2>{{ category.title }}</h2>
+  <ul>
+  {% for post in site.publications %}
+    {% if post.category == category.key %}
+      <li>
+        {% if post.url %}
+          <a href="{{ post.url }}">{{ post.title }}</a>
+        {% else %}
+          {{ post.title }}
+        {% endif %}
+        {% if post.date %}
+          ({{ post.date | date: "%Y" }})
+        {% endif %}
+        {% if post.venue %}
+          <i>{{ post.venue }}</i>
+        {% endif %}
+        {% if post.paperurl %}
+          <a href="{{ post.paperurl }}">[Link]</a>
+        {% endif %}
+      </li>
+    {% endif %}
+  {% endfor %}
+  </ul>
 {% endfor %}
-</ul>
-
-<h2>Conference Papers</h2>
-<ul>
-{% for post in site.publications %}
-  {% if post.category == "conferences" %}
-    <li>
-      <a href="{{ post.url }}">{{ post.title }}</a>
-      {% if post.date %}
-        ({{ post.date | date: "%Y" }})
-      {% endif %}
-      {% if post.venue %}
-        - <i>{{ post.venue }}</i>
-      {% endif %}
-      {% if post.paperurl %}
-        <a href="{{ post.paperurl }}">[Link]</a>
-      {% endif %}
-    </li>
-  {% endif %}
-{% endfor %}
-</ul>
-
-<h2>Books</h2>
-<ul>
-{% for post in site.publications %}
-  {% if post.category == "books" %}
-    <li>
-      <a href="{{ post.url }}">{{ post.title }}</a>
-      {% if post.date %}
-        ({{ post.date | date: "%Y" }})
-      {% endif %}
-      {% if post.venue %}
-        - <i>{{ post.venue }}</i>
-      {% endif %}
-      {% if post.paperurl %}
-        <a href="{{ post.paperurl }}">[Link]</a>
-      {% endif %}
-    </li>
-  {% endif %}
-{% endfor %}
-</ul>
