@@ -1,31 +1,33 @@
 ---
-layout: single
+layout: archive
 title: "Publications"
 permalink: /publications/
 author_profile: true
 ---
 
-<h2>Journal Articles</h2>
-
-<ul>
-  <li>
-    Your Name, Coauthor (2025). 
-    <i>Paper Title</i>. Journal Name.
-    <a href="https://xxxxxx">[Link]</a>
-  </li>
-
-  <li>
-    Your Name, Coauthor (2024). 
-    <i>Another Paper</i>. Journal Name.
-    <a href="https://xxxxxx">[Link]</a>
-  </li>
-</ul>
-
-<h2>Working Papers</h2>
-
-<ul>
-  <li>
-    Working Paper Title
-    <a href="https://xxxxxx">[SSRN]</a>
-  </li>
-</ul>
+{% assign publications_by_category = site.publications | group_by: "category" %}
+{% for category in page.publication_category %}
+  {% assign cat_key = category | first %}
+  {% assign cat_name = category | last %}
+  {% for group in publications_by_category %}
+    {% if group.name == cat_key %}
+      <h2>{{ cat_name.title }}</h2>
+      <ul>
+      {% for post in group.items %}
+        <li>
+          <a href="{{ post.url }}">{{ post.title }}</a>
+          {% if post.date %}
+            ({{ post.date | date: "%Y" }})
+          {% endif %}
+          {% if post.venue %}
+            <i>{{ post.venue }}</i>
+          {% endif %}
+          {% if post.paperurl %}
+            <a href="{{ post.paperurl }}">[Link]</a>
+          {% endif %}
+        </li>
+      {% endfor %}
+      </ul>
+    {% endif %}
+  {% endfor %}
+{% endfor %}
