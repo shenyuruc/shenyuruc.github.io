@@ -6,4 +6,4 @@ collection: publications
 category: manuscripts
 permalink: 'https://doi.org/10.1111/ilr.12360'
 ---
-Joint with Xinjie Shi and Ran Song. <i>Journal of Health Economics</i> (2023)
+Joint with Wenkai Sun. <i>International Labour Review</i> (2023)
