@@ -6,3 +6,4 @@ category: manuscripts
 permalink: 'https://doi.org/10.1007/s00148-025-01062-x'
 ---
 
+Joint with Wenkai Sun. <i>Journal of Population Economics</i> (2025)
